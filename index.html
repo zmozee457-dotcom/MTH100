@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P1 FSS UK – Téléchargement</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00264d, #004080, #0073e6);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #ffd700;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .container:hover {
+      transform: scale(1.01);
+    }
+
+    .warning-section {
+      background: linear-gradient(90deg, #ff4d4d, #ff9933);
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    .warning-text {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .file-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .file-icon {
+      font-size: 2.5rem;
+    }
+
+    .file-details h3 {
+      font-size: 1.4rem;
+      color: #ffd700;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #00b4db, #0083b0);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(45deg, #0099cc, #006699);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .info-popup {
+      display: none;
+      margin-top: 1rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      padding: 1rem;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255, 80, 0, 0.5); }
+      50% { box-shadow: 0 0 25px rgba(255, 80, 0, 0.8); }
+      100% { box-shadow: 0 0 10px rgba(255, 80, 0, 0.5); }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FSS UK – P1</h1>
+    <p>Téléchargement officiel des ressources</p>
+  </header>
+
+  <main class="container">
+    <div class="warning-section">
+      <div class="warning-text"> "⚠️ Ne vous laissez pas manipuler par d’autres personnes !!" </div>
+    </div>
+
+    <div class="file-info">
+      <div class="file-icon">📄</div>
+      <div class="file-details">
+        <h3>MTH100 </h3>
+        <p> Type : PDF</p>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="btn btn-primary" id="downloadBtn">⬇️ Télécharger</button>
+    </div>
+
+    <div class="info-popup" id="infoPopup">
+      <p>
+        Ce document contient quasiment le support de cours de mathématiques pour les étudiants de première année à la FSS UK.  
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 - Z-Team | UK
+  </footer>
+
+  <script>
+    const downloadBtn = document.getElementById('downloadBtn');
+    const infoBtn = document.getElementById('infoBtn');
+    const infoPopup = document.getElementById('infoPopup');
+
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.href = 'MTH100.pdf'; // 👉 Mets ici le vrai lien du fichier
+      link.download = 'MTH100.pdf';
+      link.click();
+    });
+
+    infoBtn.addEventListener('click', () => {
+      infoPopup.style.display = infoPopup.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+</body>
+</html>
